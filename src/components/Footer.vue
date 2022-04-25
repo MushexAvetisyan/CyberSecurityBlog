@@ -8,19 +8,19 @@
           >
           <ul>
             <li>
-              <a href="#"><youTube class="svg-icon youtube" /></a>
+              <a href="https://www.youtube.com/channel/UCDSM75JjbqAZVKs_cBDcSdw" target="_blank"><youTube class="svg-icon youtube" /></a>
             </li>
             <li>
-              <a href="#"><facebook class="svg-icon facebook" /></a>
+              <a href="https://www.facebook.com/streetart.photograph.50/" target="_blank"><facebook class="svg-icon facebook" /></a>
             </li>
             <li>
-              <a href="#"><github class="svg-icon git" /></a>
+              <a href="#" target="_blank"><github class="svg-icon git" /></a>
             </li>
             <li>
-              <a href="#"><instagram class="svg-icon insta" /></a>
+              <a href="#" target="_blank"><instagram class="svg-icon insta" /></a>
             </li>
             <li>
-              <a href="#"><linkedin class="svg-icon linked" /></a>
+              <a href="#" target="_blank"><linkedin class="svg-icon linked" /></a>
             </li>
           </ul>
         </div>

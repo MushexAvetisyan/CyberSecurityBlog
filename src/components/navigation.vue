@@ -3,27 +3,26 @@
     <nav class="container">
       <div class="branding">
         <router-link class="header" :to="{ name: 'Home' }"
-          >CyberSecurityBlogs</router-link
+          >CyberSecurityBlog</router-link
         >
       </div>
       <div class="nav_links">
         <ul v-show="!mobile">
-          <router-link class="link" to="#">Home</router-link>
-          <router-link class="link" to="#">Blogs</router-link>
-          <router-link class="link" to="#">Create Post</router-link>
-          <router-link class="link" to="#">Login/Register</router-link>
-        </ul>
-        <div class="btn-pluss-wrapper">
-          <h2 class="tooltip">Look!</h2>
-          <div href="#" class="btn-pluss">
+          <li><router-link class="link" to="#">Home</router-link></li>
+          <li><router-link class="link" to="#">Blogs</router-link></li>
+          <li><router-link class="link" to="#">Create Post</router-link></li>
+          <li><router-link class="link" to="#">Login/Register</router-link></li>
+          <li>
+            <router-link class="link" to="#">Another Blogs</router-link>
             <ul>
-              <li><router-link to=""></router-link>About me</li>
-              <li><router-link to=""></router-link>About me</li>
-              <li><router-link to=""></router-link>About me</li>
-              <li><router-link to=""></router-link>About me</li>
+              <li><router-link class="link" to="#">HTML/CSS(Bootstrap)</router-link></li>
+              <li><router-link class="link" to="#">JavaScript/Jquery</router-link></li>
+              <li><router-link class="link" to="#">PHP/MySql</router-link></li>
+              <li><router-link class="link" to="#">Laravel</router-link></li>
+              <li><router-link class="link" to="#">Js-Frameworks</router-link></li>
             </ul>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </nav>
     <menuIcon @click="toogleMobileNav" class="menu-icon" v-show="mobile" />
@@ -63,7 +62,6 @@ export default {
       }
       this.mobile = false;
       this.mobileNav = false;
-      return;
     },
 
     toogleMobileNav() {
@@ -82,7 +80,7 @@ header {
   z-index: 99;
 
   .link {
-    font-weight: 500;
+    font-weight: 700;
     padding: 0 8px;
     transition: 0.3s color ease;
     &:hover {
@@ -110,17 +108,87 @@ header {
       align-items: center;
       justify-content: flex-end;
       ul {
-        .link {
-          margin-right: 32px;
+        position: relative;
+        display: flex;
+        flex: 1 1 auto;
+        margin: 0;
+        padding: 0 30px;
+        list-style-type: none;
+        li:not(:last-child) {
+          margin-right: 30px;
         }
 
         .link:last-child {
           margin-right: 0;
         }
+        li {
+          border: 2px solid transparent;
+          border-radius: 5px;
+          padding: 10px;
+          transition: background 0.2s;
+          a {
+            color: #2375D8;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            text-align: center;
+          }
+          ul {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            display: block;
+            margin: 12px -12px;
+            padding: 0;
+            width: 220px;
+            background: white;
+            border-radius: 5px;
+            transition: opacity 0.2s, visibility 0.2s;
+            li {
+              margin: -2px 0px 5px -1px;
+              width: calc(100% + 2px);
+              line-height: 1.8;
+              a {
+                color: #2375D8;
+              }
+            }
+          }
+          &:hover {
+            background: #EC4138;
+            border: 2px solid #F05749;
+            border-right: 2px solid #E02A21;
+            border-bottom: 2px solid #E02A21;
+            a {
+              color: #F9F8FD;
+            }
+            ul {
+              visibility: visible;
+              opacity: 1;
+              box-shadow: 0 3px 5px 2px #EBECF1;
+              li {
+                a {
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+      }
+  }
+    @keyframes slide-in {
+      0% {
+        top: -50px;
+      }
+      40% {
+        top: 20px;
+      }
+      70% {
+        top: 10px;
+      }
+      100% {
+        top: 15px;
       }
     }
-  }
-
   .menu-icon {
     cursor: pointer;
     position: absolute;
@@ -164,175 +232,6 @@ header {
   .mobile-nav-leave-to {
     transform: translateX(-250px);
   }
-
-  .btn-pluss {
-    overflow: hidden;
-    position: relative;
-    display: block;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 22px;
-    width: 30px;
-    margin: 0 auto;
-    //padding-top: 25px;
-    background-color: white;
-    transition: width 0.3s 0.5s ease, border-radius 1.1s ease;
-    a {
-      display: block;
-      position: relative;
-      color: #fa434b;
-      text-decoration: none;
-      overflow: hidden;
-      padding: 5px;
-      border-radius: 5px;
-      &:hover {
-        text-decoration: inherit;
-        color: white;
-        background-color: #fa434b;
-        transition: background-color 0.5s ease;
-      }
-    }
-    &:after {
-      content: "+";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      display: block;
-      height: 20px;
-      width: 20px;
-      border-radius: 100%;
-      line-height: 20px;
-      text-align: center;
-      font-size: 1.1rem;
-      background-color: #fa434b;
-      color: white;
-      transform: translateY(-50%) translateX(-50%);
-      transition: all 0.3s 0.5s ease;
-      cursor: pointer;
-      cursor: hand;
-    }
-    ul {
-      opacity: 0;
-    }
-    ul {
-      margin-top: 15px;
-      opacity: 0;
-      width: 100%;
-      margin-left: 0px;
-      //height: 0;
-      transition: all 0.5s ease;
-      text-align: center;
-      font-size: 0.9rem;
-      li {
-        background-color: #e4e4e4;
-        margin-top: 5px;
-        border-radius: 5px;
-        width: 100%;
-        height: 0px;
-        overflow: hidden;
-        transition: height 1s ease;
-      }
-    }
-
-    //
-  }
-
-  .btn-pluss-wrapper {
-    display: block;
-    padding: 0;
-  }
-  .tooltip {
-    position: relative;
-    padding: 5px;
-    border-radius: 5px;
-    width: 70px;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin: 0 auto;
-    margin-bottom: 15px;
-    animation-duration: 3s;
-    animation-name: jump;
-    animation-iteration-count: infinite;
-    background-color: #fff;
-    color: #fa434b;
-    transition: all 1s ease;
-    pointer-events: none;
-    &::after {
-      content: "";
-      position: absolute;
-      transform: rotate(45deg);
-      display: block;
-      height: 10px;
-      width: 10px;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      background-color: inherit;
-    }
-    &::before {
-      content: "";
-      color: white;
-    }
-  }
-  .btn-pluss-wrapper:hover {
-    .tooltip {
-      animation-duration: 0s;
-      transition: all 1s ease;
-      color: white;
-      width: 90px;
-      &::before {
-        content: "Choose!";
-        display: block;
-        color: #fa434b;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        transform: translateY(-50%);
-        transition: all 1s 0.3s ease;
-      }
-    }
-    .btn-pluss {
-      width: 150px;
-      //height: 120px;
-      border-radius: 15px;
-      margin-bottom: -150px;
-      padding-bottom: 5px;
-      transition: width 0.3s ease, border-radius 0.3s ease,
-        padding-bottom 0.3s ease;
-      &::after {
-        transition: all 0.3s ease;
-        left: 50%;
-        top: 10px;
-        transform: translateY(-5px) translateX(-50%);
-      }
-      ul {
-        opacity: 1;
-        //height: 100%;
-        margin-top: 20px;
-        transition: all 1s ease;
-      }
-      li {
-        height: 25px;
-        transition: height 1s ease;
-        &:hover {
-          border-bottom: 1px solid darken(#e9e5e5, 10);
-        }
-      }
-    }
-  }
-  @keyframes jump {
-    0% {
-      transform: translateY(3px);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-    100% {
-      transform: translateY(3px);
-    }
-  }
+}
 }
 </style>
