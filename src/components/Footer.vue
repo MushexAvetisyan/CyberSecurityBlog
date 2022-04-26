@@ -14,7 +14,7 @@
               <a href="https://www.facebook.com/streetart.photograph.50/" target="_blank"><facebook class="svg-icon facebook" /></a>
             </li>
             <li>
-              <a href="#" target="_blank"><github class="svg-icon git" /></a>
+              <a href="https://github.com/MushexAvetisyan" target="_blank"><github class="svg-icon git" /></a>
             </li>
             <li>
               <a href="#" target="_blank"><instagram class="svg-icon insta" /></a>

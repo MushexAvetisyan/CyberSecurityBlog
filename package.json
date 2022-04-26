@@ -21,6 +21,7 @@
     "simple-modal-vue": "^1.0.12",
     "vue": "^2.6.11",
     "vue-apexcharts": "^1.6.2",
+    "vue-paginate": "^3.6.0",
     "vue-router": "^3.2.0",
     "vue-svg-loader": "^0.16.0",
     "vue2-editor": "^2.10.2",

@@ -2,14 +2,14 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }"
+        <router-link class="header" :to="{ name: 'Main' }"
           >CyberSecurityBlog</router-link
         >
       </div>
       <div class="nav_links">
         <ul v-show="!mobile">
-          <li><router-link class="link" to="#">Home</router-link></li>
-          <li><router-link class="link" to="#">Blogs</router-link></li>
+          <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
+          <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
           <li><router-link class="link" to="#">Create Post</router-link></li>
           <li><router-link class="link" to="#">Login/Register</router-link></li>
           <li>
@@ -27,11 +27,11 @@
     </nav>
     <menuIcon @click="toogleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
-      <ul v-show="mobileNav" class="mobile-nav">
-        <router-link class="link" to="#">Home</router-link>
-        <router-link class="link" to="#">Blogs</router-link>
-        <router-link class="link" to="#">Create Post</router-link>
-        <router-link class="link" to="#">Login/Register</router-link>
+      <ul v-show="mobileNav" class="mobile-navs">
+        <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
+        <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
+        <li><router-link class="link" to="#">Create Post</router-link></li>
+        <li><router-link class="link" to="#">Login/Register</router-link></li>
       </ul>
     </transition>
   </header>
@@ -56,7 +56,7 @@ export default {
   methods: {
     checkScreen() {
       this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 750) {
+      if (this.windowWidth <= 990) {
         this.mobile = true;
         return;
       }
@@ -66,6 +66,7 @@ export default {
 
     toogleMobileNav() {
       this.mobileNav = !this.mobileNav;
+      return;
     },
   },
 };
@@ -87,6 +88,49 @@ header {
       color: #1eb8b8;
     }
   }
+  .menu-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 32px;
+    right: 25px;
+    height: 25px;
+    width: auto;
+  }
+
+  .mobile-navs {
+    padding: 20px;
+    width: 70%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    background-color: #303030;
+    top: 0;
+    left: 0;
+
+    .link {
+      padding: 15px 0;
+      color: #fff;
+    }
+  }
+
+  .mobile-nav-enter-active,
+  .mobile-nav-leave-active {
+    transition: all 0.6s ease;
+  }
+
+  .mobile-nav-enter {
+    transform: translateX(-250px);
+  }
+
+  .mobile-nav-enter-to {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-leave-to {
+    transform: translateX(-250px);
+  }
   nav {
     display: flex;
     padding: 25px 0;
@@ -94,7 +138,9 @@ header {
     .branding {
       display: flex;
       align-items: center;
-
+        @media (max-width: 990px) {
+          margin-left: 15px;
+        }
       .header {
         font-weight: 600;
         font-size: 24px;
@@ -116,6 +162,9 @@ header {
         list-style-type: none;
         li:not(:last-child) {
           margin-right: 30px;
+          @media (max-width: 1220px) {
+            margin-right: 0;
+          }
         }
 
         .link:last-child {
@@ -140,10 +189,17 @@ header {
             display: block;
             margin: 12px -12px;
             padding: 0;
+            z-index: 50;
             width: 220px;
             background: white;
             border-radius: 5px;
             transition: opacity 0.2s, visibility 0.2s;
+            @media (max-width: 1220px) {
+              margin: 12px -60px;
+            }
+            @media (max-width: 1024px) {
+              margin: 12px -60px;
+            }
             li {
               margin: -2px 0px 5px -1px;
               width: calc(100% + 2px);
@@ -189,49 +245,6 @@ header {
         top: 15px;
       }
     }
-  .menu-icon {
-    cursor: pointer;
-    position: absolute;
-    top: 32px;
-    right: 25px;
-    height: 25px;
-    width: auto;
-  }
-
-  .mobile-nav {
-    padding: 20px;
-    width: 70%;
-    max-width: 250px;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    height: 100%;
-    background-color: #303030;
-    top: 0;
-    left: 0;
-
-    .link {
-      padding: 15px 0;
-      color: #fff;
-    }
-  }
-
-  .mobile-nav-enter-active,
-  .mobile-nav-leave-active {
-    transition: all 0.6s ease;
-  }
-
-  .mobile-nav-enter {
-    transform: translateX(-250px);
-  }
-
-  .mobile-nav-enter-to {
-    transform: translateX(0);
-  }
-
-  .mobile-nav-leave-to {
-    transform: translateX(-250px);
-  }
 }
 }
 </style>

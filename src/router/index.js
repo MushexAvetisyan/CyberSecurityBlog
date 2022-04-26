@@ -6,14 +6,28 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/',
+    name: 'Main',
+    component: () => import('../views/Main.vue'),
+    meta: {
+      title: 'Main'
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    meta: {
+      title: 'Home'
+    }
+  },
+  {
+    path: '/Blogs',
+    name: 'Blogs',
+    component: () => import('../views/Blogs.vue'),
+    meta: {
+      title: 'Blogs'
+    }
   }
 ]
 
@@ -21,6 +35,11 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | CyberSecurityBlog`;
+  next();
 })
 
 export default router
