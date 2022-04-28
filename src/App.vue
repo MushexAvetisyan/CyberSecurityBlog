@@ -1,23 +1,46 @@
 <template>
   <div class="app-wrapper">
     <div id="app">
-      <navigation />
+      <navigation v-if="!navigation" />
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
-      <footer-vue />
+      <Footer v-if="!navigation" />
     </div>
   </div>
 </template>
 <script>
 import navigation from "@/components/navigation";
-import FooterVue from "@/components/Footer";
+import Footer from "@/components/Footer";
 export default {
-  data: () => ({}),
+  data: () => ({
+    navigation: null,
+  }),
   components: {
-    FooterVue,
+    Footer,
     navigation,
   },
+  created() {
+    this.checkRoute()
+  },
+  methods: {
+    checkRoute() {
+      if (
+        this.$route.name === "Login" ||
+        this.$route.name === "Register" ||
+        this.$route.name === "ForgotPassword"
+      ) {
+        this.navigation = true;
+        return;
+      }
+      this.navigation = false
+    },
+  },
+  watch: {
+    $route() {
+      this.checkRoute()
+    }
+  }
 };
 </script>
 
@@ -154,15 +177,15 @@ button,
   }
 
   .blog-cards {
-    .paginate-links{
+    .paginate-links {
       width: 150px;
       display: flex;
       margin-top: 30px;
-      .active{
+      .active {
         background-color: #303030;
         color: white;
       }
-      li{
+      li {
         list-style-type: none;
         border: 1px solid gray;
         border-radius: 15px;
@@ -171,21 +194,21 @@ button,
         height: 30px;
         display: flex;
         align-items: center;
-        a{
+        a {
           display: flex;
           align-items: center;
           justify-content: center;
           width: 30px;
           height: 30px;
         }
-        &:hover{
+        &:hover {
           background-color: black;
           color: white;
-          transition: .5s ease all;
+          transition: 0.5s ease all;
         }
       }
     }
-    .pagination{
+    .pagination {
       display: grid;
       gap: 32px;
       grid-template-columns: 1fr;

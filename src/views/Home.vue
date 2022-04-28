@@ -10,8 +10,8 @@
       <div class="container">
         <h3>View More Recent Blogs</h3>
         <span v-if="$refs.paginator">
-            Viewing {{ $refs.paginator.pageItemsCount }} results
-          </span>
+          Viewing {{ $refs.paginator.pageItemsCount }} results
+        </span>
         <div class="blog-cards">
           <paginate
             ref="paginator"

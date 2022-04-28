@@ -33,7 +33,17 @@ export default new Vuex.Store({
       },
       {
         blogTitle: "HOW TO LEARN HACKING",
-        blogCoverPhoto: "Cropped",
+        blogCoverPhoto: "cybersecurity1",
+        blogDate: "April 30, 2022",
+      },
+      {
+        blogTitle: "HOW TO LEARN HACKING",
+        blogCoverPhoto: "cybersecurity08",
+        blogDate: "April 30, 2022",
+      },
+      {
+        blogTitle: "HOW TO LEARN HACKING",
+        blogCoverPhoto: "whyis",
         blogDate: "April 30, 2022",
       },
       {
@@ -57,9 +67,9 @@ export default new Vuex.Store({
         blogDate: "April 30, 2022",
       },
       {
-        blogTitle: "HOW TO LEARN HACKING",
-        blogCoverPhoto: "Cropped",
-        blogDate: "April 30, 2022",
+        blogTitle: "ANONYMOUS",
+        blogCoverPhoto: "whyis",
+        blogDate: "April 29, 2022",
       },
       {
         blogTitle: "HOW TO LEARN HACKING",
@@ -68,22 +78,12 @@ export default new Vuex.Store({
       },
       {
         blogTitle: "HOW TO LEARN HACKING",
-        blogCoverPhoto: "Cropped",
+        blogCoverPhoto: "cybersecurity1",
         blogDate: "April 30, 2022",
       },
       {
         blogTitle: "HOW TO LEARN HACKING",
-        blogCoverPhoto: "Cropped",
-        blogDate: "April 30, 2022",
-      },
-      {
-        blogTitle: "HOW TO LEARN HACKING",
-        blogCoverPhoto: "Cropped",
-        blogDate: "April 30, 2022",
-      },
-      {
-        blogTitle: "HOW TO LEARN HACKING",
-        blogCoverPhoto: "Cropped",
+        blogCoverPhoto: "cybersecurity08",
         blogDate: "April 30, 2022",
       },
 

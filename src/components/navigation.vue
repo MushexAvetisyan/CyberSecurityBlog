@@ -32,6 +32,12 @@
         <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
         <li><router-link class="link" to="#">Create Post</router-link></li>
         <li><router-link class="link" to="#">Login/Register</router-link></li>
+        <li style="font-size: 30px; color: goldenrod; margin: 15px 0 5px 0;">Another Blogs</li>
+            <li><router-link class="link" to="#">HTML/CSS(Bootstrap)</router-link></li>
+            <li><router-link class="link" to="#">JavaScript/Jquery</router-link></li>
+            <li><router-link class="link" to="#">PHP/MySql</router-link></li>
+            <li><router-link class="link" to="#">Laravel</router-link></li>
+            <li><router-link class="link" to="#">Js-Frameworks</router-link></li>
       </ul>
     </transition>
   </header>
@@ -98,9 +104,9 @@ header {
   }
 
   .mobile-navs {
-    padding: 20px;
+    padding: 40px;
     width: 70%;
-    max-width: 250px;
+    max-width: 330px;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -108,7 +114,11 @@ header {
     background-color: #303030;
     top: 0;
     left: 0;
-
+      li{
+        list-style-type: none;
+        padding: 10px;
+        font-size: 18px;
+      }
     .link {
       padding: 15px 0;
       color: #fff;

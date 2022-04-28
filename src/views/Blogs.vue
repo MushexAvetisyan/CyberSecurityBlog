@@ -133,8 +133,11 @@ export default {
     display: flex;
     align-items: center;
     position: absolute;
-    top: 65px;
+    top: 50px;
     right: 60px;
+    @media (max-width: 320px) {
+      right: 25px;
+    }
 
     span {
       margin-right: 16px;

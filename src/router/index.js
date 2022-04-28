@@ -28,6 +28,30 @@ const routes = [
     meta: {
       title: 'Blogs'
     }
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: () => import('../views/Login.vue'),
+    meta: {
+      title: 'Login'
+    }
+  },
+  {
+   path: '/Register',
+    name: '/Register',
+    component: () => import('../views/Register.vue'),
+    meta: {
+     title: 'Register'
+    }
+  },
+  {
+    path: '/ForgotPassword',
+    name: '/ForgotPassword',
+    component: () => import('../views/ForgotPassword.vue'),
+    meta: {
+      title: 'ForgotPassword'
+    }
   }
 ]
 
