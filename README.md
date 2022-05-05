@@ -1,6 +1,7 @@
-# cybersecurityblog
+# CyberSecurity Blog
 
-# CRUD BLOG WITH REGISTRATION ABOUT CYBERSECURITY AND HACKING
+# CRUD BLOG WITH AUTHORIZATION ABOUT CYBER SECURITY AND HACKING
+# You Can Register Login And Create Your Own Posts About CyberSecurity
 
 ## Project setup
 ```

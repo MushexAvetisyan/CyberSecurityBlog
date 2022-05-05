@@ -3,7 +3,7 @@
     <form class="login">
       <p class="login-register">
         Don`t Have an Account?
-        <router-link class="router-link" :to="{ name: 'Register' }"
+        <router-link class="router-link" :to="{ path: 'Register'}"
           >Register</router-link
         >
       </p>
@@ -18,7 +18,7 @@
           <password class="icon" />
         </div>
       </div>
-      <router-link class="forgot-password" :to="{ name: 'ForgotPassword' }"
+      <router-link class="forgot-password" :to="{ name: 'Reset-Password' }"
         >Forgot Your Password?</router-link
       >
       <button>Sign In</button>

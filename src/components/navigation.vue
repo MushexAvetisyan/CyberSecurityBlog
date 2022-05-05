@@ -10,8 +10,8 @@
         <ul v-show="!mobile">
           <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
           <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
-          <li><router-link class="link" to="#">Create Post</router-link></li>
-          <li><router-link class="link" to="#">Login/Register</router-link></li>
+          <li><router-link class="link" :to="{name: 'CreatePost'}">Create Post</router-link></li>
+          <li><router-link class="link" :to="{name: 'Login'}">Login/Register</router-link></li>
           <li>
             <router-link class="link" to="#">Another Blogs</router-link>
             <ul>
@@ -30,8 +30,8 @@
       <ul v-show="mobileNav" class="mobile-navs">
         <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
         <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
-        <li><router-link class="link" to="#">Create Post</router-link></li>
-        <li><router-link class="link" to="#">Login/Register</router-link></li>
+        <li><router-link class="link" :to="{name: 'CreatePost'}">Create Post</router-link></li>
+        <li><router-link class="link" :to="{name: 'Login'}">Login/Register</router-link></li>
         <li style="font-size: 30px; color: goldenrod; margin: 15px 0 5px 0;">Another Blogs</li>
             <li><router-link class="link" to="#">HTML/CSS(Bootstrap)</router-link></li>
             <li><router-link class="link" to="#">JavaScript/Jquery</router-link></li>
@@ -82,8 +82,6 @@ export default {
 header {
   background-color: #fff;
   padding: 0 25px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.9);
   z-index: 99;
 
   .link {

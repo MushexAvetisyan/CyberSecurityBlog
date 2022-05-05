@@ -26,9 +26,9 @@ export default {
   methods: {
     checkRoute() {
       if (
-        this.$route.name === "Login" ||
-        this.$route.name === "Register" ||
-        this.$route.name === "ForgotPassword"
+        this.$route.name === 'Login' ||
+        this.$route.name === 'Register' ||
+        this.$route.name === 'Reset-Password'
       ) {
         this.navigation = true;
         return;
@@ -38,7 +38,7 @@ export default {
   },
   watch: {
     $route() {
-      this.checkRoute()
+      this.checkRoute();
     }
   }
 };

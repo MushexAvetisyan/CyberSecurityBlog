@@ -13,7 +13,7 @@
         class="pagination"
         name="Cards"
         :list="sampleBlogCards"
-        :per="8"
+        :per="4"
       >
         <BlogCard
           :post="post"
