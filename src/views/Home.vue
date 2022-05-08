@@ -27,7 +27,9 @@
             />
           </paginate>
           <paginate-links :limit="0" for="Cards"></paginate-links>
-          <button @click="goToSecondPage">Go To First Page</button>
+          <button class="GoToFirst" @click="goToSecondPage">
+            Go To First Page
+          </button>
         </div>
       </div>
     </div>
@@ -96,7 +98,20 @@ export default {
     font-weight: 300;
     font-size: 28px;
     margin-bottom: 32px;
+    margin-left: 50px;
   }
+  span {
+    margin-left: 50px;
+    font-size: 16px;
+  }
+}
+.GoToFirst {
+  position: relative;
+  left: 50px;
+  bottom: 65px;
+}
+.blog-cards {
+  margin-top: 20px;
 }
 .updates {
   .container {

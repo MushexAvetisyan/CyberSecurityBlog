@@ -2,24 +2,46 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Main' }"
+        <router-link class="header" :to="{ name: 'Home' }"
           >CyberSecurityBlog</router-link
         >
       </div>
       <div class="nav_links">
         <ul v-show="!mobile">
-          <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
-          <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
-          <li><router-link class="link" :to="{name: 'CreatePost'}">Create Post</router-link></li>
-          <li><router-link class="link" :to="{name: 'Login'}">Login/Register</router-link></li>
+          <li>
+            <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
+          </li>
+          <li>
+            <router-link class="link" :to="{ name: 'Blogs' }"
+              >Blogs</router-link
+            >
+          </li>
+          <li>
+            <router-link class="link" :to="{ name: 'CreatePost' }"
+              >Create Post</router-link
+            >
+          </li>
+          <li>
+            <router-link class="link" :to="{ name: 'Login' }"
+              >Login/Register</router-link
+            >
+          </li>
           <li>
             <router-link class="link" to="#">Another Blogs</router-link>
             <ul>
-              <li><router-link class="link" to="#">HTML/CSS(Bootstrap)</router-link></li>
-              <li><router-link class="link" to="#">JavaScript/Jquery</router-link></li>
+              <li>
+                <router-link class="link" to="#"
+                  >HTML/CSS(Bootstrap)</router-link
+                >
+              </li>
+              <li>
+                <router-link class="link" to="#">JavaScript/Jquery</router-link>
+              </li>
               <li><router-link class="link" to="#">PHP/MySql</router-link></li>
               <li><router-link class="link" to="#">Laravel</router-link></li>
-              <li><router-link class="link" to="#">Js-Frameworks</router-link></li>
+              <li>
+                <router-link class="link" to="#">Js-Frameworks</router-link>
+              </li>
             </ul>
           </li>
         </ul>
@@ -28,16 +50,34 @@
     <menuIcon @click="toogleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
       <ul v-show="mobileNav" class="mobile-navs">
-        <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
-        <li><router-link class="link" :to="{name: 'Blogs'}">Blogs</router-link></li>
-        <li><router-link class="link" :to="{name: 'CreatePost'}">Create Post</router-link></li>
-        <li><router-link class="link" :to="{name: 'Login'}">Login/Register</router-link></li>
-        <li style="font-size: 30px; color: goldenrod; margin: 15px 0 5px 0;">Another Blogs</li>
-            <li><router-link class="link" to="#">HTML/CSS(Bootstrap)</router-link></li>
-            <li><router-link class="link" to="#">JavaScript/Jquery</router-link></li>
-            <li><router-link class="link" to="#">PHP/MySql</router-link></li>
-            <li><router-link class="link" to="#">Laravel</router-link></li>
-            <li><router-link class="link" to="#">Js-Frameworks</router-link></li>
+        <li>
+          <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'CreatePost' }"
+            >Create Post</router-link
+          >
+        </li>
+        <li>
+          <router-link class="link" :to="{ name: 'Login' }"
+            >Login/Register</router-link
+          >
+        </li>
+        <li style="font-size: 30px; color: goldenrod; margin: 15px 0 5px 0">
+          Another Blogs
+        </li>
+        <li>
+          <router-link class="link" to="#">HTML/CSS(Bootstrap)</router-link>
+        </li>
+        <li>
+          <router-link class="link" to="#">JavaScript/Jquery</router-link>
+        </li>
+        <li><router-link class="link" to="#">PHP/MySql</router-link></li>
+        <li><router-link class="link" to="#">Laravel</router-link></li>
+        <li><router-link class="link" to="#">Js-Frameworks</router-link></li>
       </ul>
     </transition>
   </header>
@@ -112,11 +152,11 @@ header {
     background-color: #303030;
     top: 0;
     left: 0;
-      li{
-        list-style-type: none;
-        padding: 10px;
-        font-size: 18px;
-      }
+    li {
+      list-style-type: none;
+      padding: 10px;
+      font-size: 18px;
+    }
     .link {
       padding: 15px 0;
       color: #fff;
@@ -146,9 +186,9 @@ header {
     .branding {
       display: flex;
       align-items: center;
-        @media (max-width: 990px) {
-          margin-left: 15px;
-        }
+      @media (max-width: 990px) {
+        margin-left: 15px;
+      }
       .header {
         font-weight: 600;
         font-size: 24px;
@@ -184,7 +224,7 @@ header {
           padding: 10px;
           transition: background 0.2s;
           a {
-            color: #2375D8;
+            color: #2375d8;
             text-decoration: none;
             text-transform: uppercase;
             transition: color 0.2s;
@@ -213,22 +253,22 @@ header {
               width: calc(100% + 2px);
               line-height: 1.8;
               a {
-                color: #2375D8;
+                color: #2375d8;
               }
             }
           }
           &:hover {
-            background: #EC4138;
-            border: 2px solid #F05749;
-            border-right: 2px solid #E02A21;
-            border-bottom: 2px solid #E02A21;
+            background: #ec4138;
+            border: 2px solid #f05749;
+            border-right: 2px solid #e02a21;
+            border-bottom: 2px solid #e02a21;
             a {
-              color: #F9F8FD;
+              color: #f9f8fd;
             }
             ul {
               visibility: visible;
               opacity: 1;
-              box-shadow: 0 3px 5px 2px #EBECF1;
+              box-shadow: 0 3px 5px 2px #ebecf1;
               li {
                 a {
                   color: black;
@@ -238,7 +278,7 @@ header {
           }
         }
       }
-  }
+    }
     @keyframes slide-in {
       0% {
         top: -50px;
@@ -253,6 +293,6 @@ header {
         top: 15px;
       }
     }
-}
+  }
 }
 </style>

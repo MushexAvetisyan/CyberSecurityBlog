@@ -3,6 +3,7 @@
     <Modal v-if="modalActive" v-on:close-modal="closeModal" />
     <loading v-if="loading" />
     <div class="form-wrap">
+      <router-link class="GoHome" to="/Home">Go To Home Page</router-link>
       <form class="reset">
         <h2>Reset Password</h2>
         <p>Forgot Your Password? Enter your email to Reset it</p>
@@ -57,6 +58,18 @@ export default {
     align-items: center;
     margin: 0 auto;
     width: 90%;
+    .GoHome {
+      position: relative;
+      bottom: 45%;
+      left: 50px;
+      color: black;
+      text-decoration-line: none;
+      font-weight: 700;
+      &:hover {
+        color: darkgray;
+        transition: 0.2s;
+      }
+    }
     @media (min-width: 900px) {
       width: 100%;
     }

@@ -1,5 +1,6 @@
 <template>
   <div class="form-wrap">
+    <router-link class="GoHome" to="/Home">Go To Home Page</router-link>
     <form class="register">
       <p class="login-register">
         Have a Account? Just
@@ -29,8 +30,11 @@
           <input type="password" placeholder="password" v-model="password" />
           <password class="icon" />
         </div>
+        <div v-show="error" class="error">
+          {{ this.errorMsg }}
+        </div>
       </div>
-      <button>Sign Up</button>
+      <button @click.prevent="register">Sign Up</button>
       <div class="angle"></div>
     </form>
     <div class="background"></div>
@@ -41,28 +45,67 @@
 import email from "../assets/Icons/email.svg";
 import password from "../assets/Icons/password.svg";
 import user from "../assets/Icons/user.svg";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import db from "../firebase/FirebaseInit";
+
 export default {
   name: "Register",
   data: () => ({
-    firstname: null,
-    lastname: null,
-    username: null,
-    email: null,
-    password: null
+    firstname: "",
+    lastname: "",
+    username: "",
+    email: "",
+    password: "",
+    error: null,
+    errorMsg: "",
   }),
+  methods: {
+    async register() {
+      if (
+        this.email !== "" &&
+        this.password !== "" &&
+        this.firstname !== "" &&
+        this.lastname !== "" &&
+        this.username !== ""
+      ) {
+        this.error = false;
+        this.errorMsg = "";
+        const firebaseAuth = await firebase.auth();
+        const createUser = await firebaseAuth.createUserWithEmailAndPassword(
+          this.email,
+          this.password
+        );
+        const result = await createUser;
+        const dataBase = db.collection("users").doc(result.user.uid);
+        await dataBase.set({
+          firstname: this.firstname,
+          lastname: this.lastname,
+          username: this.username,
+          email: this.email,
+        });
+        this.$router.push({ name: "Home" });
+        return;
+      }
+      this.error = true;
+      this.errorMsg = "Please fill all the Fields";
+      return;
+    },
+  },
   components: {
     email,
     password,
     user,
+    firebase,
   },
 };
 </script>
 
 <style scoped lang="scss">
-.register{
+.register {
   max-width: 550px;
 }
-.form-wrap{
+.form-wrap {
   overflow: hidden;
   display: flex;
   height: 100vh;
@@ -70,18 +113,30 @@ export default {
   align-items: center;
   margin: 0 auto;
   width: 90%;
+  .GoHome {
+    position: relative;
+    bottom: 45%;
+    left: 50px;
+    color: black;
+    text-decoration-line: none;
+    font-weight: 700;
+    &:hover {
+      color: darkgray;
+      transition: 0.2s;
+    }
+  }
   @media (min-width: 900px) {
     width: 100%;
   }
 
-  .login-register{
+  .login-register {
     margin-bottom: 32px;
 
-    .router-link{
+    .router-link {
       color: #000;
     }
   }
-  form{
+  form {
     padding: 0 10px;
     position: relative;
     display: flex;
@@ -93,7 +148,7 @@ export default {
       padding: 0 50px;
     }
 
-    h2{
+    h2 {
       text-align: center;
       font-size: 32px;
       color: #303030;
@@ -103,28 +158,28 @@ export default {
       }
     }
 
-    .inputs{
+    .inputs {
       width: 100%;
       max-width: 350px;
 
-      .input{
+      .input {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 8px;
-        input{
+        input {
           width: 100%;
           border: none;
           background-color: #f2f7f6;
           padding: 4px 4px 4px 30px;
           height: 50px;
 
-          &:focus{
+          &:focus {
             outline: none;
           }
         }
-        .icon{
+        .icon {
           width: 12px;
           position: absolute;
           left: 6px;
@@ -132,7 +187,7 @@ export default {
       }
     }
 
-    .forgot-password{
+    .forgot-password {
       text-decoration: none;
       color: #000;
       cursor: pointer;
@@ -141,12 +196,12 @@ export default {
       border-bottom: 1px solid transparent;
       transition: 0.5s ease all;
 
-      &:hover{
+      &:hover {
         border-color: #303030;
       }
     }
 
-    .angle{
+    .angle {
       display: none;
       position: absolute;
       background-color: #fff;
@@ -160,7 +215,7 @@ export default {
     }
   }
 
-  .background{
+  .background {
     display: none;
     flex: 2;
     background-size: cover;

@@ -12,6 +12,8 @@
 <script>
 import navigation from "@/components/navigation";
 import Footer from "@/components/Footer";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 export default {
   data: () => ({
     navigation: null,
@@ -21,26 +23,29 @@ export default {
     navigation,
   },
   created() {
-    this.checkRoute()
+    this.checkRoute();
+    setTimeout(() => {
+      console.log((firebase.auth().currentUser.uid));
+    },2000)
   },
   methods: {
     checkRoute() {
       if (
-        this.$route.name === 'Login' ||
-        this.$route.name === 'Register' ||
-        this.$route.name === 'Reset-Password'
+        this.$route.name === "Login" ||
+        this.$route.name === "Register" ||
+        this.$route.name === "Reset-Password"
       ) {
         this.navigation = true;
         return;
       }
-      this.navigation = false
+      this.navigation = false;
     },
   },
   watch: {
     $route() {
       this.checkRoute();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -71,7 +76,7 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .container {
@@ -153,6 +158,13 @@ button,
   pointer-events: none !important;
   cursor: none !important;
   background-color: rgba(128, 128, 128, 0.5) !important;
+}
+
+.error{
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  font-weight: 600;
 }
 
 #nav {
